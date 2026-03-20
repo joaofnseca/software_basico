@@ -20,29 +20,46 @@ void listarGemeos(int inicio, int fim){
 }
 
 int main() {
-    int num;
-    int res;
-
-    int inicio;
-    int fim;
+    int decisao;
     
-    /*
-    printf("Informe um número para verificar se ele é primo!\n");
-    scanf("%d", &num);
-    
-    res = ehPrimo(num);
+    do{
+        printf("\nEscolha uma opção:\n");
+        printf("1 - Verificar se um número é primo\n");
+        printf("2 - Listar os números primos gêmeos em um intervalo\n");
+        printf("0 - Sair\n");
+        scanf("%d", &decisao);
 
-    if(res == 1){
-        printf("O número é primo");
-    } else {
-        printf("O número não é primo");
-    } */
+        switch(decisao){
+            case 1:
+                int num;
+                int res;
 
-    printf("Informe dois números para verificar se eles são primo genitos!\n");
-    scanf("%d", &inicio);
-    scanf("");
-    scanf("%d", &fim);
+                printf("\nInforme um número para verificar se ele é primo!\n");
+                scanf("%d", &num);
+                
+                res = ehPrimo(num);
 
-    listarGemeos(inicio, fim);
-    printf("\n");
+                if(res == 1){
+                    printf("\nO número %d é primo\n", num);
+                } else {
+                    printf("\nO número %d não é primo\n", num);
+                }
+                break;
+            case 2:
+                int inicio;
+                int fim;
+
+                printf("\nInforme um intervalo de números para verificar os primogenitos entre eles!\n");
+                scanf(" %d", &inicio);
+                scanf(" %d", &fim);
+
+                listarGemeos(inicio, fim);
+                break;
+            case 0:
+                printf("\nSaindo...\n");
+                break;
+            default:
+                printf("\nOpção inválida. Tente novamente.\n");
+        }
+    } while (decisao != 0);
 }
