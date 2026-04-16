@@ -87,10 +87,13 @@ int my_substring(const char str1[], const char str2[]) {
             str2 = str2 - cont;
             cont = 0;
 
+            if(*str1 == *str2){
+                cont++;
+                str2++;
+            }
         }
         str1++;
     }
-
     return -1;
 }
 
